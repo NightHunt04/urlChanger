@@ -64,7 +64,7 @@ function App() {
             
             <div className="flex items-center mt-5 justify-center gap-1">
               <p>Original:&nbsp;</p>
-              <p className="border-2 border-[#3c3c3c] ml-3 px-4 py-2 rounded-xl">{savedOriginalUrl}</p>
+              <p className="border-2 border-[#3c3c3c] ml-1 2xl:ml-3 p-2 2xl:px-4 2xl:py-2 rounded-xl">{savedOriginalUrl}</p>
             </div>
           </div>
           {isCopied && 
