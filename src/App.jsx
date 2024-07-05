@@ -70,7 +70,7 @@ function App() {
           {isCopied && 
               <div className="flex items-center justify-center gap-1 mt-[70px] border-2 border-[#658753] px-3 py-2 rounded-xl">
                 <p>Copied&nbsp;</p>
-                <img src="public/Assets/tick.png" className="w-[13px] h-[13px] 2xl:w-[16px] mb-1 2xl:h-[16px] object-cover"></img>
+                <img src="/Assets/tick.png" className="w-[13px] h-[13px] 2xl:w-[16px] mb-1 2xl:h-[16px] object-cover"></img>
               </div>}
         </div>
       </div>
