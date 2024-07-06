@@ -18,6 +18,7 @@ async function PostUrl({ url }) {
     
     try {
         const response = await axios.request(config)
+        console.log(response.data)
         return response.data
     } catch(err) {
         console.log(err)
