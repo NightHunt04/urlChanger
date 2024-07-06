@@ -4,7 +4,8 @@ async function PostUrl({ url }) {
     let data = JSON.stringify({
         "url": url
     })
-    
+
+    console.log(import.meta.env.VITE_APP_POST_URL)
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
