@@ -40,7 +40,7 @@ function ViewAnalytics() {
                         {
                             data.map((d, ind) => {
                                 return(
-                                    <tr key={uuidv4()} className="border-b border-[#3e3e3e]">
+                                    <tr key={uuidv4()} className={`${ind !== 0 && 'border-t'} border-[#3e3e3e]`}>
                                         <td className="py-3 text-left align-top">{ind + 1}</td>
                                         <td className="py-3 text-left px-3 break-words align-top"><a href={d.redirectUrl} className='text-blue-400' target="_blank">{d.redirectUrl}</a></td>
                                         <td className="py-3 text-left px-3 break-words align-top"><a href={`https://url134.vercel.app/${d.shortId}`} className='text-orange-400' target="_blank">https://url134.vercel.app/{d.shortId}</a></td>
