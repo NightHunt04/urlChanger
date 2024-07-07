@@ -1,6 +1,6 @@
 import axios from "axios"
 
-async function PostUrl({ url }) {
+async function PostUrl({ url, session_id }) {
     let data = JSON.stringify({
         "url": url
     })
@@ -10,6 +10,7 @@ async function PostUrl({ url }) {
         maxBodyLength: Infinity,
         url: import.meta.env.VITE_APP_POST_URL,
         headers: { 
+            'session_id': session_id,
             'Content-Type': 'application/json'
         },
         data : data

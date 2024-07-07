@@ -1,24 +1,36 @@
 import { useState } from "react"
 import loginUser from "../../utils/login"
 import { useNavigate } from "react-router-dom"
+import Cookies from "universal-cookie"
 
 function Login() {
     const navigate = useNavigate()
+    const cookies = new Cookies()
     const [showPass, setShowPass] = useState(false)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [err, setErr] = useState(false)
     const [loader, setLoader] = useState(false)
 
     const handleLogin = async () => {
         setLoader(true)
         const response = await loginUser({ username: username, password: password })
         
-        if(response === 1) {
+        if(response.code === 1) {
             setLoader(false)
+            setErr(false)
+
+            const sessionId = response.sessionId
+            const userId = response.userId
+
+            cookies.set('sessionId', sessionId)
+            cookies.set('userId', userId)
             navigate('/')
         }
-        else
-            console.log('something went wrong', response)
+        else if(response.code === 2) {
+            setLoader(false)
+            setErr(true)
+        }
     }
 
     const handleShowPass = () => {
@@ -67,7 +79,8 @@ function Login() {
                 <a href="/signup" className="text-[12px] 2xl:text-sm hover:opacity-80">Don't have an account? <span className="text-[#ff964a]">Signup here</span></a>
             </div>
 
-            { loader && <img src="https://media1.tenor.com/m/hBV2DeZaNiUAAAAC/loading-icon.gif" className="w-[19px] 2xl:w-[23px] my-[30px] 2xl:my-[50px]"></img> }
+            { loader && <img src="https://media1.tenor.com/m/hBV2DeZaNiUAAAAC/loading-icon.gif" className="w-[19px] 2xl:w-[23px] my-[25px] 2xl:my-[50px]"></img> }
+            { err && <p className="mt-2 px-2 pb-2 text-center"><span className="text-red-500">Invalid</span> username or password. Try again!</p>}
         </div>
     )   
 }

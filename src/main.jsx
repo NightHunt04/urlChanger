@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './components/login/Login.jsx'
 import Main from './components/Main.jsx'
 import Signup from './components/signup/Signup.jsx'
+import ViewAnalytics from './components/viewAnalytics/ViewAnalytics.jsx'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: 'signup',
         element: <Signup />
+      },
+      {
+        path: 'analytics/:sessionId',
+        element: <ViewAnalytics />
       }
     ]
   }

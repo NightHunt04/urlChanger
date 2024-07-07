@@ -1,6 +1,6 @@
 import axios from "axios"
 
-async function loginUser({ username, password }) {
+async function signupUser({ username, password }) {
     let data = JSON.stringify({
         "username": username,
         "password": password
@@ -9,15 +9,16 @@ async function loginUser({ username, password }) {
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: 'https://url134.vercel.app/user/login',
+        url: 'https://url134.vercel.app/user/signup',
         headers: { 
           'Content-Type': 'application/json'
         },
         data : data
     }
       
-    let response = await axios.request(config)
+    const response = await axios.request(config)
+    console.log(response.data)
     return response.data
 }
 
-export default loginUser
+export default signupUser
