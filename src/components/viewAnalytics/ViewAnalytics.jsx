@@ -23,7 +23,7 @@ function ViewAnalytics() {
     }, []) 
 
     return (
-        <div className="flex flex-col mb-[20px] items-center justify-start mt-[45%] 2xl:mt-[15%] border-[1px] m-auto w-[95%] 2xl:w-[1200px] border-[#3e3e3e] py-3 text-left rounded-lg">
+        <div className="flex flex-col mb-[10%] items-center justify-start mt-[6%] 2xl:mt-[9%] border-[1px] m-auto w-[95%] 2xl:w-[1200px] border-[#3e3e3e] py-3 text-left rounded-lg">
             <p className="font-semibold text-[15px] 2xl:text-[18px] pb-2 border-b-[1px] border-[#3e3e3e] w-full text-center">Analytics</p>
 
             <div className="2xl:mt-[20px] flex flex-col items-center w-[85%] 2xl:w-[90%] justify-center gap-2">
