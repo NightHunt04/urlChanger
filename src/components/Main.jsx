@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import PostUrl from "../utils/PostUrl"
+import { useNavigate } from "react-router-dom"
 
 function Main() {
+    const navigate = useNavigate()
     const [url, setUrl] = useState('')
     const [result, setResult] = useState(false)
     const [changedUrl, setChangedUrl] = useState('')
@@ -11,21 +13,23 @@ function Main() {
     const [loader, setLoader] = useState(false)
 
     const handlePost = async () => {
-    setResult(false)
-    setLoader(true)
-    setSavedOriginalUrl(url)
-    setUrl('')
+        setResult(false)
+        setLoader(true)
+        setSavedOriginalUrl(url)
+        setUrl('')
 
-    const response = await PostUrl({ url: url })
+        const response = await PostUrl({ url: url })
 
-    if(response.shortId) {
-        console.log(response.shortId)
-        setChangedUrl(`https://url134.vercel.app/url/${response.shortId}`)
-        setLoader(false)
-        setResult(true)
-    }
-    else
-        console.log('error')
+        if(response.shortId) {
+            console.log('response', response.shortId)
+            setChangedUrl(`https://url134.vercel.app/${response.shortId}`)
+            setLoader(false)
+            setResult(true)
+        } 
+        else if(response.msg)
+            navigate('login')
+        else 
+            console.log('error')
     }
 
     const handleCopy = () => {

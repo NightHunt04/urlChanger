@@ -5,7 +5,6 @@ async function PostUrl({ url }) {
         "url": url
     })
 
-    console.log(import.meta.env.VITE_APP_POST_URL)
     let config = {
         method: 'post',
         maxBodyLength: Infinity,
@@ -18,10 +17,9 @@ async function PostUrl({ url }) {
     
     try {
         const response = await axios.request(config)
-        console.log(response.data)
         return response.data
     } catch(err) {
-        console.log(err)
+        console.log('this is err', err)
         return { err: 'An error occured' }
     }
 }
