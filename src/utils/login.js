@@ -13,6 +13,7 @@ async function loginUser({ username, password }) {
         headers: { 
           'Content-Type': 'application/json'
         },
+        withCredentials: true,  // Add this line
         data : data
     }
       
