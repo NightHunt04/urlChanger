@@ -11,7 +11,6 @@ function ViewAnalytics() {
 
     const fetchData = async () => {
         let response = await viewAnalytics({ session_id: cookies.get('sessionId')})
-        console.log(response)
 
         if(response?.msg)
             navigate('/login')
