@@ -21,10 +21,8 @@ function Login() {
             setErr(false)
 
             const sessionId = response.sessionId
-            const userId = response.userId
 
             cookies.set('sessionId', sessionId)
-            cookies.set('userId', userId)
             navigate('/')
         }
         else if(response.code === 2) {

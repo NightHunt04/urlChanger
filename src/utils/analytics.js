@@ -6,12 +6,13 @@ async function viewAnalytics({ session_id }) {
     maxBodyLength: Infinity,
     url: `https://url134.vercel.app/analytics/${session_id}`,
     headers: { 
-      'session_id': session_id
+      'Authorization': `Bearer ${session_id}`
     }
   }
+
+  console.log('analytics')
   
   const response = await axios.request(config)
-  console.log(response.data)
   return response.data
 }
 

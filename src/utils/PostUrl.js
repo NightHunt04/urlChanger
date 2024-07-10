@@ -10,8 +10,8 @@ async function PostUrl({ url, session_id }) {
         maxBodyLength: Infinity,
         url: import.meta.env.VITE_APP_POST_URL,
         headers: { 
-            'session_id': session_id,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${session_id}`
         },
         data : data
     }
